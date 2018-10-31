@@ -65,4 +65,50 @@ public class VarastoTest {
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
 
+    @Test
+    public void ottamallaLiikaaPalautaKaikki() {
+        varasto.lisaaVarastoon(5);
+        assertTrue(varasto.otaVarastosta(15) == 5.0);
+        assertTrue(varasto.getSaldo() == 0.0);
+    }
+    
+    @Test
+    public void lisäämälläLiikaaMaxSaldo() {
+        varasto.lisaaVarastoon(50);
+        assertTrue(varasto.getSaldo() == 10);
+    }
+    
+    @Test
+    public void negatiivinenLisäysJaPoisto() {
+        varasto.lisaaVarastoon(-5);
+        assertTrue(varasto.getSaldo() == 0);
+        
+        varasto.lisaaVarastoon(3);
+        varasto.otaVarastosta(-5);
+        assertTrue(varasto.getSaldo() == 3.0);
+    }
+    
+    @Test
+    public void testaaKonstruktori() {
+        varasto = new Varasto(150, 5);
+        assertTrue(varasto.getSaldo() == 5.0);
+        assertTrue(varasto.getTilavuus() == 150.0);
+        
+        varasto = new Varasto(-5);
+        assertTrue(varasto.getTilavuus() == 0.0);
+        
+        varasto = new Varasto(-5, -5);
+        assertTrue(varasto.getSaldo() == 0.0);
+        
+        varasto = new Varasto(10,150);
+        assertTrue(varasto.getSaldo() == 10.0);
+    }
+    
+    @Test
+    public void testaaToString() {
+        varasto = new Varasto(100, 10);
+        assertTrue("saldo = 10.0, vielä tilaa 90.0".equals(varasto.toString()));
+        System.out.println(varasto);
+    }
+    
 }
