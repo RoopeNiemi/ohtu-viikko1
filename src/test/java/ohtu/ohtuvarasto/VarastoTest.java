@@ -75,7 +75,7 @@ public class VarastoTest {
     @Test
     public void lisäämälläLiikaaMaxSaldo() {
         varasto.lisaaVarastoon(50);
-        assertTrue(varasto.getSaldo() == 11);
+        assertTrue(varasto.getSaldo() == 10);
     }
     
     @Test
