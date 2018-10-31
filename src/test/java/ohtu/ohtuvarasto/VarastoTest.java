@@ -75,7 +75,7 @@ public class VarastoTest {
     @Test
     public void lisäämälläLiikaaMaxSaldo() {
         varasto.lisaaVarastoon(50);
-        assertTrue(varasto.getSaldo() == 10);
+        assertTrue(varasto.getSaldo() == 11);
     }
     
     @Test
@@ -110,5 +110,4 @@ public class VarastoTest {
         assertTrue("saldo = 10.0, vielä tilaa 90.0".equals(varasto.toString()));
         System.out.println(varasto);
     }
-    
 }
