@@ -13,11 +13,12 @@ import static org.junit.Assert.*;
 public class VarastoTest {
 
     Varasto varasto;
-    double vertailuTarkkuus = 0.0001;
+    static final double  vertailuTarkkuus = 0.0001;
+    static final double DEFAULT_TILAVUUS = 10;
 
     @Before
     public void setUp() {
-        varasto = new Varasto(10);
+        varasto = new Varasto(DEFAULT_TILAVUUS);
     }
 
     @Test
@@ -32,10 +33,11 @@ public class VarastoTest {
 
     @Test
     public void lisaysLisaaSaldoa() {
-        varasto.lisaaVarastoon(8);
+        double lisattavaMaara = 8;
+        varasto.lisaaVarastoon(lisattavaMaara);
 
         // saldon pitäisi olla sama kun lisätty määrä
-        assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(lisattavaMaara, varasto.getSaldo(), vertailuTarkkuus);
     }
 
     @Test
