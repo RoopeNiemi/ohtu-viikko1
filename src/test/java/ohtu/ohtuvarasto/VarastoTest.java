@@ -112,5 +112,4 @@ public class VarastoTest {
         assertTrue("saldo = 10.0, vielä tilaa 90.0".equals(varasto.toString()));
         System.out.println(varasto);
     }
-    
 }
